@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 //http://localhost:8081/JSP_Article_Manager/home/printDan?dan=7&limit=10&color=red
-@WebServlet("/home/printDan")
+@WebServlet("/home/printDan2")
 public class HomeMainServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
