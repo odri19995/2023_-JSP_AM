@@ -20,7 +20,7 @@ public class ArticleDoDeleteServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.setContentType("text/html; charset=UTF-8;");
+		response.setContentType("text/html; charset=UTF-8;"); 
 		
 		Connection conn = null;
 
@@ -28,9 +28,9 @@ public class ArticleDoDeleteServlet extends HttpServlet {
 			Class.forName("com.mysql.jdbc.Driver");
 			String url = "jdbc:mysql://127.0.0.1:3306/JSPTest?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul&useOldAliasMetadataBehavior=true&zeroDateTimeNehavior=convertToNull";
 
-			conn = DriverManager.getConnection(url, "root", "");
+			conn = DriverManager.getConnection(url, "root", "");// 계정 비밀번호
 			
-			int id = Integer.parseInt(request.getParameter("id"));
+			int id = Integer.parseInt(request.getParameter("id"));  // http://localhost:8081/JSP_Article_Manager/article/doDelete?id=1
 			
 			SecSql sql = SecSql.from("DELETE FROM article");
 			sql.append("WHERE id = ?", id);
@@ -38,6 +38,8 @@ public class ArticleDoDeleteServlet extends HttpServlet {
 			DBUtil.delete(conn, sql);
 			
 			response.getWriter().append(String.format("<script>alert('%d번 글이 삭제 되었습니다.'); location.replace('list');</script>", id));
+			
+			// alert는 script 문법이라 감싸줘야 한다. 
 			
 		} catch (ClassNotFoundException e) {
 			System.out.println("드라이버 로딩 실패");

@@ -7,7 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
+//http://localhost:8081/JSP_Article_Manager/home/main
 @WebServlet("/home/main")
 public class MainPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
