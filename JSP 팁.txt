@@ -12,3 +12,25 @@
 
 내가 보고싶은 페이지에 대한 내용을 파라미터로 받아서 처리
 
+
+4-1 게시물 작성기능 구현
+
+http://localhost:8081/JSP_Article_Manager/article/doWrite?title=title&body=body1
+-DB 에 insert 되어야 함
+- 1번 글이 생성되었습니다. (alert 활용)
+-list로 이동
+
+4-2 게시물 작성 페이지 구현
+
+--> form 태그 검색
+
+<form action "" method = "" ></form>
+
+-->  get 방식 , post 방식
+
+
+5-1 게시물 수정 기능 구현
+
+방식은 작성기능과 유사함
+
+양식은 상세보기와 유사함
