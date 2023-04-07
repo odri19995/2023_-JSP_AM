@@ -17,13 +17,13 @@
 			내용 : <textarea name = "body" placeholder ="내용을 입력해주세요" ></textarea><!-- 		name으로 파라미터로 넘겨주고 servlet이 알아먹을수 있다. " /> -->
 		</div>
 		
-		<button>작성</button>
+		<div>
+			<a href="list">목록</a>
+			<button>작성</button>
+		</div>
 	</form>
 	
-	<div>
-		<a href="list">목록</a>
-	</div>
 </body>
 </html>
 
-<!-- 기본 방식은 get 방식이다. 우리는 doGet 매서드가 있다.    post 방식은 doPost이 있어야 쓸수 있다.  post는 주소창에 노출이 안된다. 중요한 정보를 숨길 수 있다.단 중요 정보는 더 깊이 숨겨줘야 한다.  /> -->
+<!-- 기본 방식은 get 방식이다. 우리는 doGet  매서드가 있다.    post 방식은 doPost이 있어야 쓸수 있다.  post는 주소창에 노출이 안된다. 중요한 정보를 숨길 수 있다.단 중요 정보는 더 깊이 숨겨줘야 한다.  /> -->

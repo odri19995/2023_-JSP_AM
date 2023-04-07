@@ -53,10 +53,12 @@
 		}
 	</style>
 	
+	
 	<div class="paging">
 		<%for (int i = 1; i <= totalPage; i++) { %>
 			<a class="<%= cPage == i ? "red" : ""%>" href="list?page=<%= i %>"><%= i %></a>
 		<% } %>
 	</div>
+
 </body>
 </html>

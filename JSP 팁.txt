@@ -34,3 +34,6 @@ http://localhost:8081/JSP_Article_Manager/article/doWrite?title=title&body=body1
 방식은 작성기능과 유사함
 
 양식은 상세보기와 유사함
+
+
+6. 계산식을 할때는 형변환을 잘 생각해야 한다. 
