@@ -37,3 +37,17 @@ http://localhost:8081/JSP_Article_Manager/article/doWrite?title=title&body=body1
 
 
 6. 계산식을 할때는 형변환을 잘 생각해야 한다. 
+
+
+7. 회원가입 기능 구현
+
+게시물 작성 기능과 유사하게 구현
+member 테이블 필요
+서블릿은 2개 jsp는 1개
+
+id , regDate , updateDate, loginId, loginPw, name
+
+form 태그에서의 onsubmit -> javascript 
+입력하지 않고 넘어갈때 막아야함
+비밀번호 확인 기능 
+로그인 아이디 중복 체크

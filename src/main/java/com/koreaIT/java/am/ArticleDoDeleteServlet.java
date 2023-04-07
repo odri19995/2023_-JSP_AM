@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import com.koreaIT.java.am.config.Config;
 import com.koreaIT.java.am.util.DBUtil;
 import com.koreaIT.java.am.util.SecSql;
 
@@ -20,15 +21,15 @@ public class ArticleDoDeleteServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.setContentType("text/html; charset=UTF-8;"); 
+		
+		response.setContentType("text/html; charset=UTF-8;");
 		
 		Connection conn = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://127.0.0.1:3306/JSPTest?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul&useOldAliasMetadataBehavior=true&zeroDateTimeNehavior=convertToNull";
+			Class.forName(Config.getDBDriverName());
 
-			conn = DriverManager.getConnection(url, "root", "");// 계정 비밀번호
+			conn = DriverManager.getConnection(Config.getDBUrl(), Config.getDBUser(), Config.getDBPassWd());
 			
 			int id = Integer.parseInt(request.getParameter("id"));  // http://localhost:8081/JSP_Article_Manager/article/doDelete?id=1
 			
