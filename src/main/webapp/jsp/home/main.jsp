@@ -9,6 +9,7 @@
 <body>
 	<h1>메인 페이지</h1>
 	
+	<div><a href="../member/login">로그인</a></div>
 	<div><a href="../member/join">회원가입</a></div> <!--  버튼을 만들었으나 요청을 받는 MemberJoinServlet서블릿 필요 -->
 	<div><a href="../article/list">게시물 리스트</a></div>
 	
