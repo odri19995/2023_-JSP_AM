@@ -37,6 +37,7 @@
 			<th>번호</th>
 			<th>날짜</th>
 			<th>제목</th>
+			<th>작성자</th>
 		</tr>
 		
 		<% 
@@ -46,6 +47,7 @@
 				<td><%= articleMap.get("id") %></td>
 				<td><%= articleMap.get("regDate") %></td>
 				<td><a href="detail?id=<%= articleMap.get("id") %>"><%= articleMap.get("title") %></a></td>
+				<td><%= articleMap.get("writerName") %></td>
 			</tr>	
 		<% 
  		}

@@ -8,6 +8,8 @@
 	Map<String, Object> articleRow = (Map) request.getAttribute("articleRow");
 %>
 
+
+
 <html>
 <head>
 <meta charset="UTF-8">
