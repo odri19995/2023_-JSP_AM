@@ -23,6 +23,8 @@ public class ArticleWriteServlet extends HttpServlet {
 			return;
 		}
 		
+		
+		
 		request.getRequestDispatcher("/jsp/article/write.jsp").forward(request, response);
 	}
 }

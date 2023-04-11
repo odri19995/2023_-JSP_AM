@@ -8,7 +8,9 @@
 	Map<String, Object> articleRow = (Map) request.getAttribute("articleRow");
 %>
 
-
+<%
+	int loginedMemberId = (int) request.getAttribute("loginedMemberId");
+%>
 
 <html>
 <head>
@@ -26,9 +28,26 @@
 		<div>제목 : <input type="text" name="title" value="<%= (String) articleRow.get("title") %>" /></div>
 		<div>내용 : <textarea name="body"><%= (String) articleRow.get("body") %></textarea></div>
 		<div>
-			<button>수정</button>
-			<a href="list">목록</a>
-			<a href="detail?id=<%= (int) articleRow.get("id") %>">취소</a>
+		
+			<%
+				if (loginedMemberId == -1) {
+			%>
+				<a href="list">목록</a>
+				<a href="detail?id=<%= (int) articleRow.get("id") %>">취소</a>
+	
+			<%
+			}
+			%>
+			<%
+				if (loginedMemberId != -1) {
+			%>
+				<button>수정</button>
+				<a href="list">목록</a>
+				<a href="detail?id=<%= (int) articleRow.get("id") %>">취소</a>
+			<%
+			}
+			%>
+		
 		</div>
 	</form>
 </body>
