@@ -23,6 +23,10 @@
 	<div>
 		<a href="write">글쓰기</a>
 	</div>
+	<div>
+		<button type="button" onclick="location.href='../home/main' ">메인 페이지</button>
+<!-- 		<a href="../home/main">홈</a> -->
+	</div>
 	
 	<table border="1">
 		<colgroup>
@@ -77,6 +81,7 @@
 		<% 
 		}
 		%>
+	
 	</div>
 </body>
 </html>
