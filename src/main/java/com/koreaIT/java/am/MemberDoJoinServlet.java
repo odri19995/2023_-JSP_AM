@@ -14,10 +14,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/article/doWrite")
-public class ArticleDoWriteServlet extends HttpServlet {
+@WebServlet("/member/doJoin")
+public class MemberDoJoinServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
 	@Override
@@ -31,22 +30,30 @@ public class ArticleDoWriteServlet extends HttpServlet {
 
 			conn = DriverManager.getConnection(Config.getDBUrl(), Config.getDBUser(), Config.getDBPassWd());
 			
-			String title = request.getParameter("title");
-			String body = request.getParameter("body");
+			String loginId = request.getParameter("loginId");
+			String loginPw = request.getParameter("loginPw");
+			String name = request.getParameter("name");
 			
-			HttpSession session = request.getSession();
-			int loginedMemberId = (int) session.getAttribute("loginedMemberId");
+			SecSql sql = SecSql.from("SELECT COUNT(*) FROM `member`");
+			sql.append("WHERE loginId = ?", loginId);
 			
-			SecSql sql = SecSql.from("INSERT INTO article");
+			int loginIdDupChk = DBUtil.selectRowIntValue(conn, sql);
+			
+			if (loginIdDupChk == 1) {
+				response.getWriter().append(String.format("<script>alert('%s은(는) 이미 사용중인 아이디입니다'); location.replace('join');</script>", loginId));
+				return;
+			}
+			
+			sql = SecSql.from("INSERT INTO `member`");
 			sql.append("SET regDate = NOW()");
 			sql.append(", updateDate = NOW()");
-			sql.append(", memberId = ?", loginedMemberId);
-			sql.append(", title = ?", title);
-			sql.append(", `body` = ?", body);
+			sql.append(", loginId = ?", loginId);
+			sql.append(", loginPw = ?", loginPw);
+			sql.append(", name = ?", name);
 			
-			int id = DBUtil.insert(conn, sql);
+			DBUtil.insert(conn, sql);
 			
-			response.getWriter().append(String.format("<script>alert('%d번 글이 생성 되었습니다.'); location.replace('list');</script>", id));
+			response.getWriter().append(String.format("<script>alert('%s님이 가입되었습니다'); location.replace('../home/main');</script>", loginId));
 			
 		} catch (ClassNotFoundException e) {
 			System.out.println("드라이버 로딩 실패");
