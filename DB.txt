@@ -61,8 +61,8 @@ loginPw = 'test2',
 `name` = '유저2';
 
 # 테스트 데이터 대량 추가 방법
-INSERT INTO article(regDate, updateDate, title, `body`)
-SELECT NOW(), NOW(), CONCAT('제목_', RAND()), CONCAT('내용_', RAND())
+INSERT INTO article(regDate, updateDate,loginId, title, `body`)
+SELECT NOW(), NOW(), `test1`,CONCAT('제목_', RAND()), CONCAT('내용_', RAND())
 FROM article;
 
 # 테이블 안의 데이터 삭제시 캐시같은것도 같이 삭제
